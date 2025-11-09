@@ -1,96 +1,68 @@
-# mall-customers-clustering
+## Mall Customers Clustering
 
----
+This repository contains a clustering analysis of mall customer data to identify distinct customer segments. The goal is to help a mall understand its customers better and tailor marketing strategies to different groups.
 
-# Customer Segmentation Clustering Analysis
+### Project Structure
 
-**Acknowledgements:** 
-Eng. Baraa Abu Sallout – for guidance and support;
-Robert Kwiatkowski – original author of the Kaggle notebook that inspired and was edited for this project.
+*   `Mall_Customers_Clustering.ipynb`: This Jupyter Notebook contains the complete Python code for data loading, preprocessing, exploratory data analysis (EDA), clustering (using K-Means), and visualization of the results.
+*   `Mall_Customers.csv`: The dataset used for this analysis. It contains information about mall customers, including age, gender, annual income, and spending score.
 
----
+### Analysis Steps
 
-## Overview
+The analysis performed in the notebook includes:
 
-This repository contains a clustering analysis of customer data (Mall Customers), aimed at segmenting customers based on demographic and behavioral features, such as **Gender**, **Age**, **Annual Income (k$)**, and **Spending Score (1–100)**. The objective is to identify distinct customer groups for better marketing and business strategy insights.
+1.  **Data Loading and Initial Inspection**: Loading the `Mall_Customers.csv` dataset and performing initial checks like viewing the first few rows, checking data types, and looking for missing values.
+2.  **Exploratory Data Analysis (EDA)**:
+    *   Univariate analysis of features like Age, Annual Income, and Spending Score using histograms and box plots.
+    *   Bivariate analysis to understand relationships between features, for example, scatter plots of Annual Income vs. Spending Score.
+    *   Analysis of customer distribution by Gender.
+3.  **Feature Scaling**: Scaling numerical features to ensure that all features contribute equally to the clustering process.
+4.  **Optimal Number of Clusters (K-Means)**: Using the Elbow Method to determine the optimal number of clusters for the K-Means algorithm.
+5.  **K-Means Clustering**: Applying the K-Means algorithm with the chosen number of clusters to segment the customers.
+6.  **Visualization of Clusters**: Visualizing the identified clusters, typically in a 2D scatter plot (e.g., Annual Income vs. Spending Score), with different colors representing different clusters.
+7.  **Cluster Profiling**: Analyzing the characteristics of each cluster to understand the typical customer profile within each segment.
 
-Three clustering algorithms were applied and compared:
+### How to Run the Notebook
 
-* **K-Means Clustering**
-* **DBSCAN (Density-Based Spatial Clustering of Applications with Noise)**
-* **Agglomerative Hierarchical Clustering (Ward’s Linkage Method)**
+To run the analysis yourself, follow these steps:
 
-All features were standardized to ensure fair distance-based clustering.
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/Abdelrahman-Shamikh/mall-customers-clustering.git
+    ```
+2.  **Navigate to the project directory**:
+    ```bash
+    cd mall-customers-clustering
+    ```
+3.  **Install the required libraries**:
+    You can install them using pip:
+    ```bash
+    pip install pandas numpy matplotlib seaborn scikit-learn
+    ```
+4.  **Open the Jupyter Notebook**:
+    ```bash
+    jupyter notebook Mall_Customers_Clustering.ipynb
+    ```
+    This will open the notebook in your web browser, and you can run the cells sequentially to reproduce the analysis.
 
----
+### Results and Insights
 
-## Key Visualizations
+The clustering analysis aims to reveal distinct groups of customers based on their spending habits and income. For example, some common segments found might include:
 
-1. **Elbow Method Plot**
-   Determines the optimal number of clusters for K-Means. The "elbow" was observed around **k = 5**, indicating 5 natural customer segments.
+*   **Low Income, Low Spending**: Frugal customers.
+*   **High Income, High Spending**: Target customers for luxury items.
+*   **Medium Income, Medium Spending**: Average customers.
+*   **High Income, Low Spending**: Potential for targeted promotions to encourage spending.
+*   **Low Income, High Spending**: Careful analysis needed, perhaps impulse buyers or those spending beyond their means.
 
-2. **K-Means Cluster Visualization**
-   Scatter plot of Annual Income vs Spending Score. Clusters are well-separated and circular.
+By understanding these segments, the mall can:
 
-3. **DBSCAN Visualization**
-   Scatter plot showing core samples and noise points. Dense customer groups were identified, while low-density customers were marked as outliers.
+*   Develop **targeted marketing campaigns** for each group.
+*   Optimize **store layouts and product placements**.
+*   Improve **customer service strategies**.
+*   Identify **opportunities for new promotions or loyalty programs**.
 
-4. **Hierarchical Clustering Dendrogram**
-   Shows hierarchical cluster structure. Clear separation suggests **3 major clusters**.
+### Example Visualization of Clusters
 
-5. **3D Scatter Plot**
-   Visualizes clusters across Age, Annual Income, and Spending Score for a holistic view.
-
----
-
-## Insights
-
-* **K-Means Clustering (k=5)** identified five distinct customer segments:
-
-  1. High-income, high-spending customers (premium group)
-  2. Low-income, high-spending customers (impulsive buyers)
-  3. High-income, low-spending customers (conservative spenders)
-  4. Average-income, moderate-spending customers
-  5. Low-income, low-spending customers
-
-* **DBSCAN** highlighted dense clusters and outliers. Sensitive to parameter tuning (`eps` and `min_samples`), it effectively detected noise but was less consistent for evenly distributed data.
-
-* **Agglomerative Hierarchical Clustering** grouped customers into **3–4 broader segments**, capturing larger behavioral categories.
-
-* **Key features influencing clusters**: Spending Score and Annual Income.
-
----
-
-## Reflection
-
-* **K-Means**: Most interpretable, well-defined clusters, but assumes spherical shapes.
-* **DBSCAN**: Effective for irregular clusters and outlier detection, but requires careful parameter tuning.
-* **Agglomerative Clustering**: Provides hierarchical insight and clear dendrograms; computationally heavier on large datasets.
-
-**Challenges:**
-
-* Selecting the optimal number of clusters.
-* Properly scaling features to ensure equal contribution.
-* Visualizing high-dimensional data in 2D/3D.
-
-**Conclusion:**
-Combining multiple clustering methods provides a comprehensive understanding of customer segmentation. K-Means offers actionable segments, hierarchical clustering validates results, and DBSCAN identifies outliers and irregular patterns.
-
----
-
-## How to Run
-
-1. Install required packages:
-
-   ```bash
-   pip install numpy pandas matplotlib seaborn scikit-learn
-   ```
-2. Load the dataset: `Mall_Customers.csv`
-3. Run the notebook `customers-clustering-k-means-dbscan-and-ap.ipynb` to reproduce the analysis and visualizations.
-
----
-
-## License
-
-This project is open-source for educational and analytical purposes.
+Here's an example of what a visualization of the clusters might look like:
 
