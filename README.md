@@ -1,7 +1,9 @@
 ## Mall Customers Clustering
 
 **Acknowledgements:**
+
 **Eng. Baraa Abu Sallout** – for guidance and support.
+
 **Robert Kwiatkowski** – original author of the Kaggle notebook that inspired and was edited for this project.
 
 This repository contains a clustering analysis of mall customer data to identify distinct customer segments. The goal is to help a mall understand its customers better and tailor marketing strategies to different groups.
